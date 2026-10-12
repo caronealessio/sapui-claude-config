@@ -9,7 +9,7 @@ Configurazione personale di Claude Code, da installare in ogni nuovo dev space.
 ## Uso
 
 ```bash
-git clone https://github.com/caronealessio/sapui-claude-config && cd claude-config && ./install.sh
+git clone https://github.com/caronealessio/sapui-claude-config && cd sapui-claude-config && ./install.sh
 ```
 
 Lo script è idempotente e salva un backup dei file che sovrascrive. Richiede `node`.
