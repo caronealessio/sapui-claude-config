@@ -30,10 +30,10 @@ Descrivi anche parametri e valore di ritorno quando non sono ovvi dal nome o dal
 ```ts
 /**
  * Carica i template dal servizio e li imposta nel modello della view.
- * @param filterValue testo da usare per filtrare l'elenco
+ * @param sFilterValue testo da usare per filtrare l'elenco
  * @returns promise risolta a caricamento terminato
  */
-public async loadTemplates(filterValue: string): Promise<void> {
+public async loadTemplates(sFilterValue: string): Promise<void> {
     // ...
 }
 ```
@@ -50,3 +50,27 @@ public async loadTemplates(filterValue: string): Promise<void> {
 - Le chiavi sono in inglese (sezione 1), i valori in italiano (sezione 3).
 - Ogni chiave nuova va aggiunta a tutti i file di lingua esistenti (`i18n.properties`, `i18n_en.properties`, ecc.).
 - Sopra ogni chiave metti l'annotazione SAP del tipo di testo (`#XTIT`, `#XBUT`, `#XFLD`, `#XMSG`, `#XTOL`, ...), con lunghezza massima e nota per i traduttori quando servono.
+
+## 5. Variabili in Hungarian notation
+
+Variabili, parametri e proprietà private usano un prefisso minuscolo che indica il tipo, seguito dal nome in camelCase inglese (sezione 1):
+
+| Prefisso | Tipo | Esempio |
+|---|---|---|
+| `s` | string | `sFilterValue` |
+| `i` | integer | `iIndex` |
+| `f` | float | `fAmount` |
+| `b` | boolean | `bIsVisible` |
+| `o` | object | `oModel`, `oEvent` |
+| `a` | array | `aItems` |
+| `m` | map / oggetto chiave-valore | `mParameters` |
+| `fn` | function | `fnCallback` |
+| `d` | date | `dStartDate` |
+| `r` | regular expression | `rPattern` |
+| `p` | promise | `pLoad` |
+| `v` | tipo variabile / any | `vValue` |
+| `$` | oggetto jQuery | `$Element` |
+
+- Vale per variabili locali, parametri di metodi/funzioni e campi delle classi.
+- Le costanti a livello di modulo restano in `UPPER_SNAKE_CASE`; nomi di metodi, classi e tipi non hanno prefisso.
+- Anche in TypeScript, dove il tipo è già dichiarato, il prefisso va usato comunque.
